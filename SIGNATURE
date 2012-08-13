@@ -14,21 +14,21 @@ not run its Makefile.PL or Build.PL.
 -----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA1
 
-SHA1 8bf92bb742a25402ec4e2ec4976cd3be38a38cfd Changes
+SHA1 2e8192555c43ccf3d6b5f3a628d14dfa98d65f6f Changes
 SHA1 fcd369a9e049930d046feeceaf608fcc027e13fa MANIFEST
-SHA1 9465a31674b5d9c7cc2366bfae1b5a38411ba281 META.yml
+SHA1 b507bd16394221d0e3ed3836d082f9c633681f4f META.yml
 SHA1 2663ad2c8628417e0044bef5156ce9fbdf2c2dec Makefile.PL
 SHA1 7597204f88cf49d32bd4fbd6c479cbb1fd5647d7 README
-SHA1 29f15a4f06894484315be6a29dbb53104dc42fd4 lib/Date/Extract/P800Picture.pm
+SHA1 cf288ac09d68cad587c399d4c43a23a16ab35214 lib/Date/Extract/P800Picture.pm
 SHA1 b91e06775b831a4aecff1e2a70d648ceedff6df6 lib/Date/Extract/P800Picture/TypeDef.pm
-SHA1 ab1f04f4385935d87d2a1774033ae876707d63b4 t/00_base.t
+SHA1 116eddb74cdf7d955a3f2622435e7b30715b7d06 t/00_base.t
 SHA1 f5fdda1bba102f750254b593855dd62eaa16337c t/00_signature.t
 SHA1 14069e1084ca6e5cc5b478dcaf1ff9f8b622243a t/01_boundaries.t
 SHA1 b3b4b964097a759ba16488656fb7f7b3c5a7d342 t/02_hours.t
 SHA1 db567686506d0f4945b2fd6ca5da60a5efff4ad8 t/03_days.t
 SHA1 981ea1d3478130c8a50db01536af3a740c3c2607 t/04_months.t
 SHA1 1f186534fa34890a19830699ff84b3c6adf688d8 t/05_years.t
-SHA1 d6c7fd9c69a451f1e7c1d5a4e4feecaf8041e23d t/06_exceptions.t
+SHA1 8004708176e7bd72aa155d0ccb89d288bcfe579e t/06_exceptions.t
 SHA1 f9e0a2906a5c682de2ca62625573373983851cf3 t/07_field.t
 SHA1 fab5362f5018a7393801a67d4a720efae9d8b9e5 t/09_pod.t
 SHA1 816025abfa8ab2cbcaef835fa30e8c249cbfa9a4 t/10_pod-coverage.t
@@ -41,7 +41,7 @@ SHA1 da39a3ee5e6b4b0d3255bfef95601890afd80709 t/perlcriticrc
 -----BEGIN PGP SIGNATURE-----
 Version: GnuPG v2.0.10 (Darwin)
 
-iEYEARECAAYFAkl7pVMACgkQ8EyqqHBOVHf1OwCg1cVJk+nZmn0PkPbNME/n9Ulw
-TBcAn0Of7S+mdlYts16nxas+HNdoyeRC
-=uYrL
+iEYEARECAAYFAkmEGKsACgkQ8EyqqHBOVHfflACghyBl9AnuHVGePoY/fi+0er/5
+osAAoNZzbKiPYNc8O3cPdaZkdF5iq1k/
+=KzHv
 -----END PGP SIGNATURE-----

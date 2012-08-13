@@ -2,14 +2,14 @@ package Date::Extract::P800Picture;
 use strict;
 use warnings;
 
-# $Id: P800Picture.pm 47 2009-01-24 23:31:21Z roland $
-# $Revision: 47 $
+# $Id: P800Picture.pm 50 2009-01-31 09:22:52Z roland $
+# $Revision: 50 $
 # $HeadURL: svn+ssh://ipenburg.xs4all.nl/srv/svnroot/debbie/trunk/Date-Extract-P800Picture/lib/Date/Extract/P800Picture.pm $
-# $Date: 2009-01-25 00:31:21 +0100 (Sun, 25 Jan 2009) $
+# $Date: 2009-01-31 10:22:52 +0100 (Sat, 31 Jan 2009) $
 
 use 5.006000;
 
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
 use Class::Meta::Express;
 use Date::Extract::P800Picture::TypeDef;

@@ -1,7 +1,7 @@
-# $Id: 06_exceptions.t 33 2008-12-07 02:45:25Z roland $
-# $Revision: 33 $
+# $Id: 06_exceptions.t 48 2009-01-25 12:49:06Z roland $
+# $Revision: 48 $
 # $HeadURL: svn+ssh://ipenburg.xs4all.nl/srv/svnroot/debbie/trunk/Date-Extract-P800Picture/t/06_exceptions.t $
-# $Date: 2008-12-07 03:45:25 +0100 (Sun, 07 Dec 2008) $
+# $Date: 2009-01-25 13:49:06 +0100 (Sun, 25 Jan 2009) $
 
 use Test::More;
 
@@ -28,42 +28,42 @@ my %invalids = (
     ],
     '31S60001.JPG' => [
         undef,
-qr/^Invalid\ day\ of\ month\ \(day\ =\ 29\ -\ month\ =\ 2\ -\ year\ =\ 2003\)/msx,
+qr/^Invalid\ day\ of\ month\ \(day\ =\ 29\ -\ month\ =\ 2(\ -\ year\ =\ 2003)?\)/msx,
         'invalid date 2003-02-29 caught'
     ],
     '31T60001.JPG' => [
         undef,
-qr/^Invalid\ day\ of\ month\ \(day\ =\ 30\ -\ month\ =\ 2\ -\ year\ =\ 2003\)/msx,
+qr/^Invalid\ day\ of\ month\ \(day\ =\ 30\ -\ month\ =\ 2(\ -\ year\ =\ 2003)?\)/msx,
         'Invalid day of month (day = 30 - month = 2 - year = 2003)',
         'invalid date 2003-02-30 caught'
     ],
     '31U60001.JPG' => [
         undef,
-qr/^Invalid\ day\ of\ month\ \(day\ =\ 31\ -\ month\ =\ 2\ -\ year\ =\ 2003\)/msx,
+qr/^Invalid\ day\ of\ month\ \(day\ =\ 31\ -\ month\ =\ 2(\ -\ year\ =\ 2003)?\)/msx,
         'Invalid day of month (day = 31 - month = 2 - year = 2003)',
         'invalid date 2003-02-31 caught'
     ],
     '33U60001.JPG' => [
         undef,
-qr/^Invalid\ day\ of\ month\ \(day\ =\ 31\ -\ month\ =\ 4\ -\ year\ =\ 2003\)/msx,
+qr/^Invalid\ day\ of\ month\ \(day\ =\ 31\ -\ month\ =\ 4(\ -\ year\ =\ 2003)?\)/msx,
         'Invalid day of month (day = 31 - month = 4 - year = 2003)',
         'invalid date 2003-04-31 caught'
     ],
     '35U60001.JPG' => [
         undef,
-qr/^Invalid\ day\ of\ month\ \(day\ =\ 31\ -\ month\ =\ 6\ -\ year\ =\ 2003\)/msx,
+qr/^Invalid\ day\ of\ month\ \(day\ =\ 31\ -\ month\ =\ 6(\ -\ year\ =\ 2003)?\)/msx,
         'Invalid day of month (day = 31 - month = 6 - year = 2003)',
         'invalid date 2003-06-31 caught'
     ],
     '38U60001.JPG' => [
         undef,
-qr/^Invalid\ day\ of\ month\ \(day\ =\ 31\ -\ month\ =\ 9\ -\ year\ =\ 2003\)/msx,
+qr/^Invalid\ day\ of\ month\ \(day\ =\ 31\ -\ month\ =\ 9(\ -\ year\ =\ 2003)?\)/msx,
         'Invalid day of month (day = 31 - month = 9 - year = 2003)',
         'invalid date 2003-09-31 caught'
     ],
     '3AU60001.JPG' => [
         undef,
-qr/^Invalid\ day\ of\ month\ \(day\ =\ 31\ -\ month\ =\ 11\ -\ year\ =\ 2003\)/msx,
+qr/^Invalid\ day\ of\ month\ \(day\ =\ 31\ -\ month\ =\ 11(\ -\ year\ =\ 2003)?\)/msx,
         'invalid date 2003-11-31 caught'
     ],
 );
@@ -75,8 +75,7 @@ my $parser = Date::Extract::P800Picture->new();
 while ( my ( $filename, $expect ) = each %invalids ) {
     is( eval '$parser->extract($filename)', $expect->[0], $expect->[2] );
     if ( ref $expect->[1] eq 'Regexp' ) {
-        like( $@, $expect->[1],
-            'error message for ' . $expect->[2] );
+        like( $@, $expect->[1], 'error message for ' . $expect->[2] );
     }
     else {
         is( $@, $expect->[1], 'error message for ' . $expect->[2] );

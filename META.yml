@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:               Date-Extract-P800Picture
-version:            0.03
+version:            0.04
 abstract:           class for extracting the date and the hour from
 author:
     - Roland van Ipenburg <ipenburg@xs4all.nl>
