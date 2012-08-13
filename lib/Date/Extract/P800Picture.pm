@@ -2,14 +2,14 @@ package Date::Extract::P800Picture;
 use strict;
 use warnings;
 
-# $Id: P800Picture.pm 35 2008-12-07 07:53:05Z roland $
-# $Revision: 35 $
+# $Id: P800Picture.pm 41 2009-01-22 18:34:06Z roland $
+# $Revision: 41 $
 # $HeadURL: svn+ssh://ipenburg.xs4all.nl/srv/svnroot/debbie/trunk/Date-Extract-P800Picture/lib/Date/Extract/P800Picture.pm $
-# $Date: 2008-12-07 08:53:05 +0100 (Sun, 07 Dec 2008) $
+# $Date: 2009-01-22 19:34:06 +0100 (Thu, 22 Jan 2009) $
 
 use 5.006000;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 use Class::Meta::Express;
 use Date::Extract::P800Picture::TypeDef;
@@ -41,7 +41,7 @@ my $FILE = qr/^[0-9A-Z][0-9AB][0-9A-U][0-9A-N]\d{4}\.JPG$/ixsm;
 
 class {
 
-	meta 'p800picture';
+    meta 'p800picture';
 
     ctor 'new';
 
@@ -135,13 +135,8 @@ __END__
 
 =head1 NAME
 
-Date::Extract::P800Picture - class for extracting date and
-hour from the filename of pictures taken with a Sony-Ericsson P800 camera
-phone.
-
-The B<Date::Extract::P800Picture> module extracts the date
-and the hour of the moment a picture is taken with a Sony-Ericsson P800 from
-the filename of the image.
+Date::Extract::P800Picture - class for extracting the date and the hour from
+the filename of pictures taken with a Sony-Ericsson P800 camera phone.
 
 =head1 VERSION
 
@@ -159,6 +154,13 @@ the filename of the image.
 
 =head1 DESCRIPTION
 
+The Sony-Ericsson P800 camera phone stores pictures taken with the camera on
+the device with a filename consisting of the date and the hour the picture was
+taken, followed by a four digit number and the .JPG extension. The format of
+the date and the hour is YMDH, in which the single characters are base 36 to
+fit a range of about 36 years, 12 months, 31 days and 24 hours since the year
+2000 in a case insensitive US-ASCII representation.
+
 =head1 SUBROUTINES/METHODS
 
 =over 4
@@ -170,16 +172,18 @@ Constructs a new Date::Extract::P800Picture object.
 
 =item $parser->filename($filename);
 
-Sets the filename to extract the date from.
+Sets the filename to extract the date and hour from.
 
 =item $obj-E<gt>extract()
 
-Extract date and hour from string and returns it as L<DateTime> object.
-Returns undef if no valid date could be extracted. 
+Extract date and hour from the string and returns it as L<DateTime> object.
+Returns undef if no valid date could be extracted.
 
 =back
 
 =head1 CONFIGURATION AND ENVIRONMENT
+
+No configuration and environment settings are used.
 
 =head1 DEPENDENCIES
 
@@ -199,22 +203,38 @@ Returns undef if no valid date could be extracted.
 
 =over 4
 
-=item * Currently the requirement is English 1.04, which makes this module 5.10 or
-later only and we don't want that just to have Perl::Critic not bugging us.
-What are the previous versions of English we could use?
+To avoid ambiguity between more common date notations and the Sony-Ericsson
+P800's date notation this is a separate module. It's highly unlikely that in
+any other setting "2000" means the first of January 2002.
 
 =back
 
 =head1 DIAGNOSTICS
 
+An error is thrown when a date can't be extracted from the string:
+
+=over 4
+
+=item * Could not parse year char '%s'
+
+=item * Could not parse month char '%s'
+
+=item * Could not parse day char '%s'
+
+=item * Could not parse hour char '%s'
+
+=item * No date found in filename '%s'
+
+=item * Filename is not set, nothing to extract
+
+=back
+
 =head1 BUGS AND LIMITATIONS
 
 =over 4
 
-=item * Empty subclass test fails, is this a Class::Meta::Express issue or
-something that can be solved in this module?
-
-The empty subclass can't be empty, it need at least:
+=item * Empty subclass test fails, this is probably a Class::Meta::Express
+issue. The empty subclass can't be empty, it needs at least:
 
 	use Class::Meta::Express;
 
@@ -222,8 +242,10 @@ The empty subclass can't be empty, it need at least:
 		ctor 'new';
 	};
 
-=item * Check extracted date with creation date of file: need to know more
-about the timezone of the filesystem for that.
+=item * Usually the files are transferred from the P800 to other systems in a
+way that hasn't completely preserved the timestamp of the file, so there is no
+reliable way to double check the results by comparing the date extracted from
+the filename with the timestamp of the file.
 
 =back
 
@@ -233,7 +255,7 @@ Roland van Ipenburg, E<lt>ipenburg@xs4all.nlE<gt>
 
 =head1 LICENSE AND COPYRIGHT
 
-Copyright (C) 2008 by Roland van Ipenburg
+Copyright (C) 2009 by Roland van Ipenburg
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself, either Perl version 5.10.0 or,

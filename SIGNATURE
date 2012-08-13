@@ -1,0 +1,47 @@
+This file contains message digests of all files listed in MANIFEST,
+signed via the Module::Signature module, version 0.55.
+
+To verify the content in this distribution, first make sure you have
+Module::Signature installed, then type:
+
+    % cpansign -v
+
+It will check each file's integrity, as well as the signature's
+validity.  If "==> Signature verified OK! <==" is not displayed,
+the distribution may already have been compromised, and you should
+not run its Makefile.PL or Build.PL.
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+SHA1 4dcb9467a36c6f0b02928c8298b2d2533a8ff8cf Changes
+SHA1 fcd369a9e049930d046feeceaf608fcc027e13fa MANIFEST
+SHA1 781d704f0e2a48bc4991a0f7756e594c2ba2f368 META.yml
+SHA1 4e55b36189d4b061516423cc899187be903c9391 Makefile.PL
+SHA1 7597204f88cf49d32bd4fbd6c479cbb1fd5647d7 README
+SHA1 fad624b87110643e0d20160d6991f430beb2a435 lib/Date/Extract/P800Picture.pm
+SHA1 b91e06775b831a4aecff1e2a70d648ceedff6df6 lib/Date/Extract/P800Picture/TypeDef.pm
+SHA1 50365abe8f5f0c45bdce4886ddda95b896dd03cf t/00_base.t
+SHA1 f5fdda1bba102f750254b593855dd62eaa16337c t/00_signature.t
+SHA1 06e0b2b4c2be8a06d042b901d6e5209b2bec17d4 t/01_boundaries.t
+SHA1 8b6173544940b2f8678c7afc5a3ff5c16cb89167 t/02_hours.t
+SHA1 013f10794a36fbaf687ea5e930db79e47271ae78 t/03_days.t
+SHA1 4788741be32d974b6e68d8d6d0e34f3016ca9f75 t/04_months.t
+SHA1 e012938707c8c52cf0d61c21229d86a6cbbd7d9e t/05_years.t
+SHA1 d6c7fd9c69a451f1e7c1d5a4e4feecaf8041e23d t/06_exceptions.t
+SHA1 d9ddc82eb70524f596e2632a28f1ee5cb80c28c5 t/07_field.t
+SHA1 fab5362f5018a7393801a67d4a720efae9d8b9e5 t/09_pod.t
+SHA1 816025abfa8ab2cbcaef835fa30e8c249cbfa9a4 t/10_pod-coverage.t
+SHA1 890a25d2bb7c1eb956bb2a7c7ef2b5d5d361f320 t/11_test-coverage.t
+SHA1 f1dbfa1d680e840309bb86d9a9f252358e537326 t/12_manifest.t
+SHA1 17e7444cd9399ca6866a561f96d679ab6cb7210c t/13_critic.t
+SHA1 8f06de430f4f1a082229decb50c711a29dbd1a21 t/14_kwalitee.t
+SHA1 e1f469275f89d09a8be49cb546ed0c60c5f2d162 t/15_spell.t
+SHA1 da39a3ee5e6b4b0d3255bfef95601890afd80709 t/perlcriticrc
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v2.0.10 (Darwin)
+
+iEYEARECAAYFAkl4wCoACgkQ8EyqqHBOVHcdDgCfQEF2BRC+rkMxYeg/PMA9AXci
+nyAAmgM4yIL3BoI7+E6of/DKfXIa7Fa2
+=hI9l
+-----END PGP SIGNATURE-----

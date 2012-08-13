@@ -1,5 +1,8 @@
 Revision history for Perl extension Date::Extract::P800Picture.
 
+0.02  Thu Jan 22 19:47:00 2009
+	- first release to CPAN
+
 0.01  Thu Dec  4 22:05:02 2008
 	- original version; created by h2xs 1.23 with options
 		-b 5.6.0 -AX Date::Extract::P800Picture

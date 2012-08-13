@@ -2,8 +2,10 @@ Changes
 Makefile.PL
 MANIFEST
 README
+SIGNATURE
 lib/Date/Extract/P800Picture.pm
 lib/Date/Extract/P800Picture/TypeDef.pm
+t/00_signature.t
 t/00_base.t
 t/01_boundaries.t
 t/02_hours.t

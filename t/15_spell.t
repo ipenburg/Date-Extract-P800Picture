@@ -25,3 +25,5 @@ Test::Spelling::all_pod_files_spelling_ok();
 __DATA__
 Ipenburg
 Sony
+JPG
+YMDH
