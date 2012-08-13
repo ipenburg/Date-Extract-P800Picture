@@ -1,0 +1,42 @@
+Date::Extract::P800Picture version 0.01
+=======================================================
+
+This module can be used to extract the date and hour found in the filenames
+of pictures taken with the Sony-Ericsson P800 camera phone. The format used
+by that phone is the almost human readable YMDHNNNN.JPG:
+
+    Y	 	year between 2000 and 2035, 0-9A-Z
+    M	 	month, 0-9AB
+    D	 	day of month, 0-9A-U
+    H	 	hour of day, 0-9A-N
+    NNNN	 decimal incremental id
+    .JPG	filename extension
+
+INSTALLATION
+
+To install this module type the following:
+
+   perl Makefile.PL
+   make
+   make test
+   make install
+
+DEPENDENCIES
+
+This module requires these other modules and libraries:
+
+  Error 		0.17
+  English 		1.04
+  Readonly 		1.03
+  DateTime 		0.45
+  POSIX			1.13
+  Class::Meta::Express 	1.10
+  Test::More		0.86
+
+COPYRIGHT AND LICENCE
+
+Copyright (C) 2008 by Roland van Ipenburg
+
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself, either Perl version 5.10.0 or,
+at your option, any later version of Perl 5 you may have available.

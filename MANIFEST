@@ -1,0 +1,23 @@
+Changes
+Makefile.PL
+MANIFEST
+README
+lib/Date/Extract/P800Picture.pm
+lib/Date/Extract/P800Picture/TypeDef.pm
+t/00_base.t
+t/01_boundaries.t
+t/02_hours.t
+t/03_days.t
+t/04_months.t
+t/05_years.t
+t/06_exceptions.t
+t/07_field.t
+t/09_pod.t
+t/10_pod-coverage.t
+t/11_test-coverage.t
+t/12_manifest.t
+t/13_critic.t
+t/14_kwalitee.t
+t/15_spell.t
+t/perlcriticrc
+META.yml                                 Module meta-data (added by MakeMaker)
