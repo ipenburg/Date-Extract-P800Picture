@@ -1,7 +1,7 @@
-# $Id: 01_boundaries.t 31 2008-12-07 01:48:39Z roland $
-# $Revision: 31 $
+# $Id: 01_boundaries.t 46 2009-01-24 23:19:13Z roland $
+# $Revision: 46 $
 # $HeadURL: svn+ssh://ipenburg.xs4all.nl/srv/svnroot/debbie/trunk/Date-Extract-P800Picture/t/01_boundaries.t $
-# $Date: 2008-12-07 02:48:39 +0100 (Sun, 07 Dec 2008) $
+# $Date: 2009-01-25 00:19:13 +0100 (Sun, 25 Jan 2009) $
 
 use Test::More;
 
@@ -43,5 +43,5 @@ plan tests => 0 + keys %boundaries;
 use Date::Extract::P800Picture;
 my $parser = Date::Extract::P800Picture->new();
 while ( my ( $filename, $expect ) = each %boundaries ) {
-    is( $parser->extract($filename), $expect->[0], $expect->[1] );
+    is( "@{[$parser->extract($filename)]}", $expect->[0], $expect->[1] );
 }

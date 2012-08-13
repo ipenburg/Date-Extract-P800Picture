@@ -1,10 +1,10 @@
 --- #YAML:1.0
 name:               Date-Extract-P800Picture
-version:            0.02
+version:            0.03
 abstract:           class for extracting the date and the hour from
 author:
     - Roland van Ipenburg <ipenburg@xs4all.nl>
-license:            unknown
+license:            perl
 distribution_type:  module
 configure_requires:
     ExtUtils::MakeMaker:  0
@@ -15,7 +15,7 @@ requires:
     Error:                0
     POSIX:                0
     Readonly:             0
-    Test::More:           0
+    Test::More:           0.81
 no_index:
     directory:
         - t

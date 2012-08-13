@@ -1,7 +1,7 @@
-# $Id: 05_years.t 22 2008-12-06 03:16:09Z roland $
-# $Revision: 22 $
+# $Id: 05_years.t 46 2009-01-24 23:19:13Z roland $
+# $Revision: 46 $
 # $HeadURL: svn+ssh://ipenburg.xs4all.nl/srv/svnroot/debbie/trunk/Date-Extract-P800Picture/t/05_years.t $
-# $Date: 2008-12-06 04:16:09 +0100 (Sat, 06 Dec 2008) $
+# $Date: 2009-01-25 00:19:13 +0100 (Sun, 25 Jan 2009) $
 
 use Test::More;
 BEGIN { plan tests => 36 }
@@ -48,5 +48,5 @@ my %years = (
 use Date::Extract::P800Picture;
 my $parser = Date::Extract::P800Picture->new();
 while ( my ( $filename, $expect ) = each %years ) {
-    is( $parser->extract($filename), $expect->[0], "year " . $expect->[1] );
+    is( "@{[$parser->extract($filename)]}", $expect->[0], "year " . $expect->[1] );
 }

@@ -1,7 +1,7 @@
-# $Id: 03_days.t 22 2008-12-06 03:16:09Z roland $
-# $Revision: 22 $
+# $Id: 03_days.t 46 2009-01-24 23:19:13Z roland $
+# $Revision: 46 $
 # $HeadURL: svn+ssh://ipenburg.xs4all.nl/srv/svnroot/debbie/trunk/Date-Extract-P800Picture/t/03_days.t $
-# $Date: 2008-12-06 04:16:09 +0100 (Sat, 06 Dec 2008) $
+# $Date: 2009-01-25 00:19:13 +0100 (Sun, 25 Jan 2009) $
 
 use Test::More;
 BEGIN { plan tests => 31 }
@@ -43,5 +43,5 @@ my %days = (
 use Date::Extract::P800Picture;
 my $parser = Date::Extract::P800Picture->new();
 while ( my ( $filename, $expect ) = each %days ) {
-    is( $parser->extract($filename), $expect->[0], $expect->[1] );
+    is( "@{[$parser->extract($filename)]}", $expect->[0], $expect->[1] );
 }

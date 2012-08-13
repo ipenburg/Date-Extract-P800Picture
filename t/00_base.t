@@ -1,7 +1,7 @@
-# $Id: 00_base.t 34 2008-12-07 06:47:25Z roland $
-# $Revision: 34 $
+# $Id: 00_base.t 45 2009-01-23 13:28:43Z roland $
+# $Revision: 45 $
 # $HeadURL: svn+ssh://ipenburg.xs4all.nl/srv/svnroot/debbie/trunk/Date-Extract-P800Picture/t/00_base.t $
-# $Date: 2008-12-07 07:47:25 +0100 (Sun, 07 Dec 2008) $
+# $Date: 2009-01-23 14:28:43 +0100 (Fri, 23 Jan 2009) $
 
 use Test::More;
 use DateTime;
@@ -29,6 +29,7 @@ my $datetime2 = DateTime->new(
     month => 12,
     day   => 5,
     hour  => 2,
+    time_zone => 'UTC',
 );
 is( ref $datetime, ref $datetime2, 'extract method returns DateTime object' );
 is_deeply( $datetime, $datetime2,

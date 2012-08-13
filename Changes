@@ -1,5 +1,18 @@
 Revision history for Perl extension Date::Extract::P800Picture.
 
+0.03  Sun Jan 25 12:31:00 2009
+	- Split field tests in preserved and shifted entries
+
+	- Pre-stringified objects in tests
+
+	- Added timezone to DateTime object for deep testing
+
+	- Test::More prereq versioned to 0.81
+	  (https://rt.cpan.org/Ticket/Display.html?id=42713)
+
+	- Added Perl license for meta
+	  (https://rt.cpan.org/Ticket/Display.html?id=42704)
+
 0.02  Thu Jan 22 19:47:00 2009
 	- first release to CPAN
 
