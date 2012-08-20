@@ -1,8 +1,3 @@
-# $Id: 00_base.t 49 2009-01-27 23:00:15Z roland $
-# $Revision: 49 $
-# $HeadURL: svn+ssh://ipenburg.xs4all.nl/srv/svnroot/debbie/trunk/Date-Extract-P800Picture/t/00_base.t $
-# $Date: 2009-01-28 00:00:15 +0100 (Wed, 28 Jan 2009) $
-
 use Test::More;
 use DateTime;
 

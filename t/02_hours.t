@@ -1,8 +1,3 @@
-# $Id: 02_hours.t 46 2009-01-24 23:19:13Z roland $
-# $Revision: 46 $
-# $HeadURL: svn+ssh://ipenburg.xs4all.nl/srv/svnroot/debbie/trunk/Date-Extract-P800Picture/t/02_hours.t $
-# $Date: 2009-01-25 00:19:13 +0100 (Sun, 25 Jan 2009) $
-
 use Test::More;
 BEGIN { plan tests => 24 }
 my %hours = (

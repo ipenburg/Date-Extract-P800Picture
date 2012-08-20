@@ -2,11 +2,6 @@ package Date::Extract::P800Picture::TypeDef;
 use strict;
 use warnings;
 
-# $Id: TypeDef.pm 35 2008-12-07 07:53:05Z roland $
-# $Revision: 35 $
-# $HeadURL: svn+ssh://ipenburg.xs4all.nl/srv/svnroot/debbie/trunk/Date-Extract-P800Picture/lib/Date/Extract/P800Picture/TypeDef.pm $
-# $Date: 2008-12-07 08:53:05 +0100 (Sun, 07 Dec 2008) $
-
 our $VERSION = '0.01';
 
 use Class::Meta::Type;

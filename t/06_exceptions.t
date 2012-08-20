@@ -1,8 +1,3 @@
-# $Id: 06_exceptions.t 48 2009-01-25 12:49:06Z roland $
-# $Revision: 48 $
-# $HeadURL: svn+ssh://ipenburg.xs4all.nl/srv/svnroot/debbie/trunk/Date-Extract-P800Picture/t/06_exceptions.t $
-# $Date: 2009-01-25 13:49:06 +0100 (Sun, 25 Jan 2009) $
-
 use Test::More;
 
 my %invalids = (
