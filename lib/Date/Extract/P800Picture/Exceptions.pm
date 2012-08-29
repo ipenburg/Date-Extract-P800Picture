@@ -6,7 +6,7 @@ use warnings;
 use utf8;
 use 5.014000;
 
-our $VERSION = '0.05';
+our $VERSION = '0.100';
 
 use Exception::Class qw(
   DateExtractP800PictureException

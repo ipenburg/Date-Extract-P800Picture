@@ -43,5 +43,6 @@ my %years = (
 use Date::Extract::P800Picture;
 my $parser = Date::Extract::P800Picture->new();
 while ( my ( $filename, $expect ) = each %years ) {
-    is( "@{[$parser->extract($filename)]}", $expect->[0], "year " . $expect->[1] );
+    is( "@{[$parser->extract($filename)]}",
+        $expect->[0], "year " . $expect->[1] );
 }

@@ -1,0 +1,5 @@
+# git
+^.git/
+^.gitmodules$
+^git2cl/
+.gitignore$ # Wherever it appears
