@@ -1,26 +1,31 @@
---- #YAML:1.0
-name:               Date-Extract-P800Picture
-version:            0.04
-abstract:           class for extracting the date and the hour from
+---
+abstract: 'class for extracting the date and the hour from'
 author:
-    - Roland van Ipenburg <ipenburg@xs4all.nl>
-license:            perl
-distribution_type:  module
+  - 'Roland van Ipenburg <ipenburg@xs4all.nl>'
+build_requires:
+  Test::More: 0.81
 configure_requires:
-    ExtUtils::MakeMaker:  0
-requires:
-    Class::Meta::Express:  0
-    DateTime:             0
-    English:              0
-    Error:                0
-    POSIX:                0
-    Readonly:             0
-    Test::More:           0.81
-no_index:
-    directory:
-        - t
-        - inc
-generated_by:       ExtUtils::MakeMaker version 6.48
+  Module::Build: 0.40
+dynamic_config: 1
+generated_by: 'Module::Build version 0.4003, CPAN::Meta::Converter version 2.120921'
+license: perl
 meta-spec:
-    url:      http://module-build.sourceforge.net/META-spec-v1.4.html
-    version:  1.4
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: Date-Extract-P800Picture
+provides:
+  Date::Extract::P800Picture:
+    file: lib/Date/Extract/P800Picture.pm
+    version: 0.100
+requires:
+  DateTime: 0
+  English: 0
+  Error: 0
+  Moose: 0
+  POSIX: 0
+  Readonly: 0
+  namespace::autoclean: 0
+  perl: v5.14.0
+resources:
+  license: http://dev.perl.org/licenses/
+version: 0.100

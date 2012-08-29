@@ -1,18 +1,17 @@
-package Date::Extract::P800Picture;
-use strict;
-use warnings;
+package Date::Extract::P800Picture;    # -*- cperl; cperl-indent-level: 4 -*-
 
-use 5.006000;
+use 5.014000;
 
-our $VERSION = '0.04';
+use Moose;
+use namespace::autoclean -also => qr/^__/sxm;
 
-use Class::Meta::Express;
-use Date::Extract::P800Picture::TypeDef;
+our $VERSION = '0.100';
 
 use POSIX ();
 use English qw( -no_match_vars);
-use Error qw(:try);
 use DateTime;
+
+use Date::Extract::P800Picture::Exceptions;
 
 use Readonly;
 Readonly::Scalar my $EMPTY             => q{};
@@ -23,106 +22,110 @@ Readonly::Scalar my $HOURS_IN_DAY      => 24;
 Readonly::Scalar my $BASE_36           => 36;
 Readonly::Scalar my $TZ                => 'UTC';
 
-Readonly::Scalar my $ERROR_PARSING_YEAR  => q{Could not parse year char '%s'};
-Readonly::Scalar my $ERROR_PARSING_MONTH => q{Could not parse month char '%s'};
-Readonly::Scalar my $ERROR_PARSING_DAY   => q{Could not parse day char '%s'};
-Readonly::Scalar my $ERROR_PARSING_HOUR  => q{Could not parse hour char '%s'};
-Readonly::Scalar my $ERROR_MISSING_DATE  => q{No date found in filename '%s'};
-Readonly::Scalar my $ERROR_MISSING_FILENAME =>
-  q{Filename is not set, nothing to extract};
+Readonly::Hash my %ERR => (
+    PARSING_YEAR     => q{Could not parse year char '%s'},
+    PARSING_MONTH    => q{Could not parse month char '%s'},
+    PARSING_DAY      => q{Could not parse day char '%s'},
+    PARSING_HOUR     => q{Could not parse hour char '%s'},
+    MISSING_DATE     => q{No date found in filename '%s'},
+    MISSING_FILENAME => q{Filename is not set, nothing to extract},
+);
 
-my $DATE = qr/^([0-9A-Z])([0-9AB])([0-9A-U])([0-9A-N])/ixsm;
-my $FILE = qr/^[0-9A-Z][0-9AB][0-9A-U][0-9A-N]\d{4}\.JPG$/ixsm;
+## no critic (ProhibitComplexRegexes)
+my $PATTERN = qr{
+    ^
+    (?<year>     [[:alnum:]]   ) # max 36 years: $EPOCH_YEAR 2000 to 2035
+    (?<month>    [[:digit:]AB] ) # max 12 months
+    (?<day>      [[:digit:]A-U]) # max 31 days
+    (?<hour>     [[:digit:]A-N]) # max 24 hours: 0 to 23
+    (?<serial>   [[:digit:]]{4}) # max unique up to 10000 pictures per hour
+    (?<suffix>   [.]JPG        ) # JPEG extension
+    $
+}aixsm;
+## use critic
 
-class {
+has 'filename' => (
+    is  => 'rw',
+    isa => 'Str',
+);
 
-    meta 'p800picture';
+has 'datetime' => (
+    is      => 'rw',
+    isa     => 'DateTime',
+    default => sub {
+        DateTime->new(
+            year      => $EPOCH_YEAR,
+            time_zone => $TZ,
+        );
+    },
+);
 
-    ctor 'new';
-
-    has filename => ( is => 'string' );
-    has datetime => (
-        is      => 'datetime',
-        default => sub {
-            DateTime->new(
-                year      => $EPOCH_YEAR,
-                time_zone => $TZ,
-            );
-        },
-    );
-
-    method extract => sub {
-        my ( $self, $filename ) = @_;
-        ( defined $filename ) && $self->filename($filename);
-        if ( defined $self->filename ) {
-            my ( $year, $month, $day, $hour ) = $self->filename =~ $DATE;
-            if ( defined $year ) {
-                $self->_parse( \$year, $BASE_36, $ERROR_PARSING_YEAR )
-                  && $self->_parse( \$month, $MONTHS_IN_YEAR,
-                    $ERROR_PARSING_MONTH )
-                  && $self->_parse( \$day, $MAX_DAYS_IN_MONTH,
-                    $ERROR_PARSING_DAY )
-                  && $self->_parse( \$hour, $HOURS_IN_DAY, $ERROR_PARSING_HOUR )
-                  && try {
+sub extract {
+    my ( $self, $filename ) = @_;
+    ( defined $filename ) && $self->filename($filename);
+    if ( defined $self->filename ) {
+        $self->filename =~ $PATTERN;
+        my ( $year, $month, $day, $hour ) = (
+            $LAST_PAREN_MATCH{year}, $LAST_PAREN_MATCH{month},
+            $LAST_PAREN_MATCH{day},  $LAST_PAREN_MATCH{hour},
+        );
+        if ( defined $year ) {
+                 $self->_parse( \$year,  $BASE_36,        $ERR{PARSING_YEAR} )
+              && $self->_parse( \$month, $MONTHS_IN_YEAR, $ERR{PARSING_MONTH} )
+              && $self->_parse( \$day,  $MAX_DAYS_IN_MONTH, $ERR{PARSING_DAY} )
+              && $self->_parse( \$hour, $HOURS_IN_DAY,      $ERR{PARSING_HOUR} )
+              && (
+                eval {
                     $self->datetime->set(
                         year  => $year + $EPOCH_YEAR,
                         month => $month + 1,
                         day   => $day + 1,
                         hour  => $hour,
                     );
+                    1;
+                } || do {
+                    DateExtractP800PictureException->throw(
+                        error => $EVAL_ERROR );
                 }
-                catch Error with {
-                    my $E = shift;
-                    Error->throw(
-                        -text   => $E->{-text},
-                        -object => $self,
-                    );
-                }
-                finally {};
-            }
-            else {
-                Error->throw(
-                    -text   => sprintf( $ERROR_MISSING_DATE, $self->filename ),
-                    -object => $self,
-                );
-            }
+              );
         }
         else {
-            Error->throw( -text => $ERROR_MISSING_FILENAME, -object => $self, );
+            DateExtractP800PictureException->throw(
+                error => sprintf $ERR{MISSING_DATE},
+                $self->filename
+            );
         }
-        return $self->datetime;
-    };
+    }
+    else {
+        DateExtractP800PictureException->throw(
+            error => $ERR{MISSING_FILENAME} );
+    }
+    return $self->datetime;
+}
 
-    # Converts a character to a number given base. Changes the referenced part
-    # returns true on succes.
+# Converts a character to a number given base. Changes the referenced part
+# returns true on succes.
 
-    method _parse => (
-        code => sub {
-            my ( $self, $sr_part, $base, $error_message ) = @_;
-            my $n_unparsed = 0;
-            local $OS_ERROR = 0;
-            if ( defined ${$sr_part} ) {
-                ( ${$sr_part}, $n_unparsed ) =
-                  POSIX::strtol( ${$sr_part}, $base );
-            }
-            if (   !defined ${$sr_part}
-                || ${$sr_part} eq $EMPTY
-                || $n_unparsed != 0
-                || $OS_ERROR )
-            {
-                Error->throw(
-                    -text => sprintf $error_message,
-                    defined ${$sr_part} ? ${$sr_part} : 'undef',
-                    -object => $self,
-                );
-                ${$sr_part} = undef;
-            }
-            return defined ${$sr_part};
-        },
-        view => 'PRIVATE',
-    );
-
-};
+sub _parse {
+    my ( $self, $sr_part, $base, $error_message ) = @_;
+    my $n_unparsed = 0;
+    local $OS_ERROR = 0;
+    if ( defined ${$sr_part} ) {
+        ( ${$sr_part}, $n_unparsed ) = POSIX::strtol( ${$sr_part}, $base );
+    }
+    if (   !defined ${$sr_part}
+        || ${$sr_part} eq $EMPTY
+        || $n_unparsed != 0
+        || $OS_ERROR )
+    {
+        DateExtractP800PictureException->throw(
+            error => sprintf $error_message,
+            defined ${$sr_part} ? ${$sr_part} : 'undef',
+        );
+        ${$sr_part} = undef;
+    }
+    return defined ${$sr_part};
+}
 
 1;
 
@@ -137,15 +140,15 @@ the filename of pictures taken with a Sony-Ericsson P800 camera phone.
 
 =head1 SYNOPSIS
 
-	use Date::Extract::P800Picture;
+    use Date::Extract::P800Picture;
 
-	$filename = "8B360001.JPG"; # 2008-12-04T6:00:00
+    $filename = "8B360001.JPG"; # 2008-12-04T6:00:00
 
-	$parser = new Date::Extract::P800Picture();
-	$parser = new Date::Extract::P800Picture(filename => $filename);
+    $parser = new Date::Extract::P800Picture();
+    $parser = new Date::Extract::P800Picture(filename => $filename);
 
-	$datetime = $parser->extract();
-	$datetime = $parser->extract($filename);
+    $datetime = $parser->extract();
+    $datetime = $parser->extract($filename);
 
 =head1 DESCRIPTION
 
@@ -161,6 +164,7 @@ fit a range of about 36 years, 12 months, 31 days and 24 hours since the year
 =over 4
 
 =item Date::Extract::P800Picture-E<gt>new()
+
 =item Date::Extract::P800Picture-E<gt>new(filename => $filename)
 
 Constructs a new Date::Extract::P800Picture object.
@@ -171,8 +175,8 @@ Sets the filename to extract the date and hour from.
 
 =item $obj-E<gt>extract()
 
-Extract date and hour from the string and returns it as L<DateTime> object.
-Returns undef if no valid date could be extracted.
+Extract date and hour from the string and returns it as L<DateTime|DateTime>
+object. Returns undef if no valid date could be extracted.
 
 =back
 
@@ -182,17 +186,16 @@ No configuration and environment settings are used.
 
 =head1 DEPENDENCIES
 
-	L<POSIX>
-	L<English>
-	L<DateTime>
-	L<Readonly>
+perl 5.14 
+L<POSIX|POSIX>
+L<English|English>
+L<DateTime|DateTime>
+L<Readonly|Readonly>
 
-	L<Class::Meta::Express>
-	L<Class::Meta::Type>
+L<Moose|Moose>
+L<namespace::autoclean|namespace::autoclean>
 
-	L<Date::Extract::P800Picture::TypeDef>
-
-	L<Test::More>
+L<Test::More|Test::More>
 
 =head1 INCOMPATIBILITIES
 
@@ -228,15 +231,6 @@ An error is thrown when a date can't be extracted from the string:
 
 =over 4
 
-=item * Empty subclass test fails, this is probably a Class::Meta::Express
-issue. The empty subclass can't be empty, it needs at least:
-
-	use Class::Meta::Express;
-
-	class {
-		ctor 'new';
-	};
-
 =item * Usually the files are transferred from the P800 to other systems in a
 way that hasn't completely preserved the timestamp of the file, so there is no
 reliable way to double check the results by comparing the date extracted from
@@ -244,16 +238,42 @@ the filename with the timestamp of the file.
 
 =back
 
+Please report any bugs or feature requests at
+L<RT for rt.cpan.org|https://rt.cpan.org/Dist/Display.html?Queue=Date-Extract-P800Picture>.
+
 =head1 AUTHOR
 
 Roland van Ipenburg, E<lt>ipenburg@xs4all.nlE<gt>
 
 =head1 LICENSE AND COPYRIGHT
 
-Copyright (C) 2009 by Roland van Ipenburg
+Copyright 2012 by Roland van Ipenburg
 
 This library is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself, either Perl version 5.10.0 or,
+it under the same terms as Perl itself, either Perl version 5.14.0 or,
 at your option, any later version of Perl 5 you may have available.
+
+=head1 DISCLAIMER OF WARRANTY
+
+BECAUSE THIS SOFTWARE IS LICENSED FREE OF CHARGE, THERE IS NO WARRANTY
+FOR THE SOFTWARE, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT WHEN
+OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES
+PROVIDE THE SOFTWARE "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER
+EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE
+ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE SOFTWARE IS WITH
+YOU. SHOULD THE SOFTWARE PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL
+NECESSARY SERVICING, REPAIR, OR CORRECTION.
+
+IN NO EVENT UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING
+WILL ANY COPYRIGHT HOLDER, OR ANY OTHER PARTY WHO MAY MODIFY AND/OR
+REDISTRIBUTE THE SOFTWARE AS PERMITTED BY THE ABOVE LICENSE, BE
+LIABLE TO YOU FOR DAMAGES, INCLUDING ANY GENERAL, SPECIAL, INCIDENTAL,
+OR CONSEQUENTIAL DAMAGES ARISING OUT OF THE USE OR INABILITY TO USE
+THE SOFTWARE (INCLUDING BUT NOT LIMITED TO LOSS OF DATA OR DATA BEING
+RENDERED INACCURATE OR LOSSES SUSTAINED BY YOU OR THIRD PARTIES OR A
+FAILURE OF THE SOFTWARE TO OPERATE WITH ANY OTHER SOFTWARE), EVEN IF
+SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF
+SUCH DAMAGES.
 
 =cut

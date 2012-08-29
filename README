@@ -1,4 +1,4 @@
-Date::Extract::P800Picture version 0.01
+Date::Extract::P800Picture version 0.05
 =======================================================
 
 This module can be used to extract the date and hour found in the filenames
@@ -9,17 +9,17 @@ by that phone is the almost human readable YMDHNNNN.JPG:
     M	 	month, 0-9AB
     D	 	day of month, 0-9A-U
     H	 	hour of day, 0-9A-N
-    NNNN	 decimal incremental id
+    NNNN	decimal incremental id
     .JPG	filename extension
 
 INSTALLATION
 
 To install this module type the following:
 
-   perl Makefile.PL
-   make
-   make test
-   make install
+   perl Build.PL
+   ./Build
+   ./Build test
+   ./Build install
 
 DEPENDENCIES
 
@@ -30,12 +30,12 @@ This module requires these other modules and libraries:
   Readonly 		1.03
   DateTime 		0.45
   POSIX			1.13
-  Class::Meta::Express 	1.10
-  Test::More		0.86
+  Moose 		0
+  Test::More	0.86
 
 COPYRIGHT AND LICENCE
 
-Copyright (C) 2008 by Roland van Ipenburg
+Copyright (C) 2012 by Roland van Ipenburg
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself, either Perl version 5.10.0 or,

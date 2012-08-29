@@ -1,10 +1,11 @@
 Changes
-Makefile.PL
+Build.PL
 MANIFEST
+MANIFEST.SKIP
 README
 SIGNATURE
 lib/Date/Extract/P800Picture.pm
-lib/Date/Extract/P800Picture/TypeDef.pm
+lib/Date/Extract/P800Picture/Exceptions.pm
 t/00_signature.t
 t/00_base.t
 t/01_boundaries.t
@@ -22,4 +23,5 @@ t/13_critic.t
 t/14_kwalitee.t
 t/15_spell.t
 t/perlcriticrc
-META.yml                                 Module meta-data (added by MakeMaker)
+META.yml
+META.json

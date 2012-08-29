@@ -22,3 +22,9 @@ Ipenburg
 Sony
 JPG
 YMDH
+DateTime
+RT
+Readonly
+cpan
+org
+rt

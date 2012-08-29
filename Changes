@@ -1,5 +1,16 @@
 Revision history for Perl extension Date::Extract::P800Picture.
 
+0.100
+	- Bumped minimal perl to 5.14 to get unicode right
+
+	- Refactored from Error to Exception::Class
+
+	- Refactored from ExtUtils::MakeMaker to Module::Build
+
+    - Refactored from Class::Meta::Express to Moose
+
+	- Switched version control from subversion to Github
+
 0.04  Sat Jan 31 10:22:00 2009
 	- Adapt exception test for older DateTime (RT #42776)
 
