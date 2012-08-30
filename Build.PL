@@ -2,6 +2,7 @@ use strict;
 use warnings;
 use Module::Build;
 Module::Build->new(
+    ( sign => 1 ),
     module_name => 'Date::Extract::P800Picture',
     license     => 'perl',
     dist_author => 'Roland van Ipenburg <ipenburg@xs4all.nl>',
