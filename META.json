@@ -40,7 +40,7 @@
    "provides" : {
       "Date::Extract::P800Picture" : {
          "file" : "lib/Date/Extract/P800Picture.pm",
-         "version" : "0.100"
+         "version" : "0.101"
       }
    },
    "release_status" : "stable",
@@ -49,5 +49,5 @@
          "http://dev.perl.org/licenses/"
       ]
    },
-   "version" : "0.100"
+   "version" : "0.101"
 }

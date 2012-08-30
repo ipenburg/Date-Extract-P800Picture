@@ -6,7 +6,7 @@ use warnings;
 use utf8;
 use 5.014000;
 
-our $VERSION = '0.100';
+our $VERSION = '0.101';
 
 use Exception::Class qw(
   DateExtractP800PictureException
@@ -26,18 +26,17 @@ Date::Extract::P800Picture::Exceptions - Handles exception information for the L
 
 =head1 VERSION
 
-This document describes Date::Extract::P800Picture::Exceptions version 0.05.
+This document describes Date::Extract::P800Picture::Exceptions version 0.101.
 
 =head1 SYNOPSIS
 
     use Date::Extract::P800Picture::Exceptions;
-    NOSOpenInternalServerErrorException->throw( error => $ERR );
+    DateExtractP800PictureException->throw( error => $ERR );
 
 =head1 DESCRIPTION
 
-Provides C<NOSOpenInternalServerErrorException>,
-C<NOSOpenBadRequestException>, C<NOSOpenUnauthorizedException> and
-C<NOSOpenForbiddenException> exception classes based on
+Provides C<DateExtractP800PictureExceptionNOSOpenInternalServerErrorException>
+exception classes based on
 L<Exception::Class::Base|Exception::Class::Base>.
 
 =head1 SUBROUTINES/METHODS
@@ -57,18 +56,18 @@ L<Exception::Class|Exception::Class>
 =head1 BUGS AND LIMITATIONS
 
 Please report any bugs or feature requests at
-L<RT for rt.cpan.org|https://rt.cpan.org/Dist/Display.html?Queue=WWW-NOS-Open>.
+L<RT for rt.cpan.org|https://rt.cpan.org/Dist/Display.html?Queue=Date-Extract-P800Picture>.
 
 =head1 AUTHOR
 
-Roland van Ipenburg  C<< <ipenburg@xs4all.nl> >>
+Roland van Ipenburg, E<lt>ipenburg@xs4all.nlE<gt>
 
 =head1 LICENSE AND COPYRIGHT
 
-Copyright 2011 by Roland van Ipenburg
+Copyright 2012 by Roland van Ipenburg
 
 This library is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself, either Perl version 5.12.2 or,
+it under the same terms as Perl itself, either Perl version 5.14.0 or,
 at your option, any later version of Perl 5 you may have available.
 
 =head1 DISCLAIMER OF WARRANTY
