@@ -5,7 +5,7 @@ use 5.014000;
 use Moose;
 use namespace::autoclean -also => qr/^__/sxm;
 
-our $VERSION = '0.101';
+our $VERSION = '0.102';
 
 use POSIX ();
 use English qw( -no_match_vars);
@@ -138,7 +138,7 @@ the filename of pictures taken with a Sony-Ericsson P800 camera phone.
 
 =head1 VERSION
 
-This document describes Date::Extract::P800Picture version 0.101.
+This document describes Date::Extract::P800Picture version 0.102.
 
 =head1 SYNOPSIS
 

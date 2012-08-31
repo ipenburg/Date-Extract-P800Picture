@@ -28,7 +28,7 @@
          "requires" : {
             "DateTime" : "0",
             "English" : "0",
-            "Error" : "0",
+            "Exception::Class" : "0",
             "Moose" : "0",
             "POSIX" : "0",
             "Readonly" : "0",
@@ -40,7 +40,7 @@
    "provides" : {
       "Date::Extract::P800Picture" : {
          "file" : "lib/Date/Extract/P800Picture.pm",
-         "version" : "0.101"
+         "version" : "0.102"
       }
    },
    "release_status" : "stable",
@@ -49,5 +49,5 @@
          "http://dev.perl.org/licenses/"
       ]
    },
-   "version" : "0.101"
+   "version" : "0.102"
 }

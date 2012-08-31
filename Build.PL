@@ -9,7 +9,7 @@ Module::Build->new(
     requires    => {
         'perl'                 => '5.14.0',
         'POSIX'                => 0,
-        'Error'                => 0,
+        'Exception::Class'     => 0,
         'English'              => 0,
         'Readonly'             => 0,
         'DateTime'             => 0,
