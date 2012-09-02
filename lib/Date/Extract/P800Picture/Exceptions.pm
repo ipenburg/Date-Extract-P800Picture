@@ -6,7 +6,7 @@ use warnings;
 use utf8;
 use 5.014000;
 
-our $VERSION = '0.102';
+our $VERSION = '0.103';
 
 use Exception::Class qw(
   DateExtractP800PictureException
@@ -26,7 +26,7 @@ Date::Extract::P800Picture::Exceptions - Handles exception information for the L
 
 =head1 VERSION
 
-This document describes Date::Extract::P800Picture::Exceptions version 0.102.
+This document describes Date::Extract::P800Picture::Exceptions version 0.103.
 
 =head1 SYNOPSIS
 

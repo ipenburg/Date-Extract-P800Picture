@@ -1,5 +1,8 @@
 Revision history for Perl extension Date::Extract::P800Picture.
 
+0.103 Thu Sep  1 18:38:07 2012
+    - Added github repository to meta data
+
 0.102 Thu Aug 31 19:51:16 2012
     - Added missing prerequisite Exception::Class
 
