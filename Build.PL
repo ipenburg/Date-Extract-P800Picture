@@ -16,5 +16,6 @@ Module::Build->new(
         'Moose'                => 0,
         'namespace::autoclean' => 0,
     },
+	configure_requires => { 'Module::Build' => 0.40 },
     build_requires => { 'Test::More' => 0.81, },
 )->create_build_script;
