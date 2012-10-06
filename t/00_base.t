@@ -10,10 +10,7 @@ BEGIN {
 my $parser = new_ok('Date::Extract::P800Picture');
 
 @Date::Extract::P800Picture::Sub::ISA = qw(Date::Extract::P800Picture);
-TODO: {
-    todo_skip 'Empty subclass of Class::Meta::Express issue', 1 if 1;
-    my $parser_sub = new_ok('Date::Extract::P800Picture::Sub');
-}
+my $parser_sub = new_ok('Date::Extract::P800Picture::Sub');
 
 foreach my $method (@methods) {
     can_ok( 'Date::Extract::P800Picture', $method );
