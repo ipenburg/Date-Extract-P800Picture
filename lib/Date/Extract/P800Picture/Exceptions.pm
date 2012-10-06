@@ -1,12 +1,10 @@
 # -*- cperl; cperl-indent-level: 4 -*-
-package Date::Extract::P800Picture::Exceptions;
+package Date::Extract::P800Picture::Exceptions 0.104;
 use strict;
 use warnings;
 
 use utf8;
 use 5.014000;
-
-our $VERSION = '0.103';
 
 use Exception::Class qw(
   DateExtractP800PictureException
@@ -24,7 +22,7 @@ Date::Extract::P800Picture::Exceptions - exceptions.
 
 =head1 VERSION
 
-This document describes Date::Extract::P800Picture::Exceptions version 0.103.
+This document describes Date::Extract::P800Picture::Exceptions version 0.104.
 
 =head1 SYNOPSIS
 

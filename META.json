@@ -47,11 +47,11 @@
    "provides" : {
       "Date::Extract::P800Picture" : {
          "file" : "lib/Date/Extract/P800Picture.pm",
-         "version" : "0.103"
+         "version" : "0.104"
       },
       "Date::Extract::P800Picture::Exceptions" : {
          "file" : "lib/Date/Extract/P800Picture/Exceptions.pm",
-         "version" : "0.103"
+         "version" : "0.104"
       }
    },
    "release_status" : "stable",
@@ -60,6 +60,6 @@
          "http://dev.perl.org/licenses/"
       ]
    },
-   "version" : "0.103",
+   "version" : "0.104",
    "x_repository" : "https://github.com/ipenburg/Date-Extract-P800Picture"
 }
