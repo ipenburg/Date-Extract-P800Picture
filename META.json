@@ -25,6 +25,13 @@
          }
       },
       "runtime" : {
+         "recommends" : {
+            "File::Basename" : "0",
+            "Getopt::Long" : "0",
+            "Log::Log4perl" : "0",
+            "Pod::Usage" : "0",
+            "Pod::Usage::CommandLine" : "0"
+         },
          "requires" : {
             "DateTime" : "0",
             "English" : "0",
@@ -41,6 +48,10 @@
       "Date::Extract::P800Picture" : {
          "file" : "lib/Date/Extract/P800Picture.pm",
          "version" : "0.103"
+      },
+      "Date::Extract::P800Picture::Exceptions" : {
+         "file" : "lib/Date/Extract/P800Picture/Exceptions.pm",
+         "version" : "0.103"
       }
    },
    "release_status" : "stable",
@@ -49,5 +60,6 @@
          "http://dev.perl.org/licenses/"
       ]
    },
-   "version" : "0.103"
+   "version" : "0.103",
+   "x_repository" : "https://github.com/ipenburg/Date-Extract-P800Picture"
 }
