@@ -4,8 +4,12 @@ MANIFEST
 MANIFEST.SKIP
 README
 SIGNATURE
+bin/p800date
+bin/p800exif
 lib/Date/Extract/P800Picture.pm
 lib/Date/Extract/P800Picture/Exceptions.pm
+sample/36LC0079.jpg
+sample/36LC0079_original.jpg
 t/00_signature.t
 t/00_base.t
 t/01_boundaries.t
