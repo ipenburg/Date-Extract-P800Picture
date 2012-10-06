@@ -165,7 +165,7 @@ __END__
 
 =head1 NAME
 
-p800exif - attach the date encoded in a P800 picture filename to the file
+p800exif - add the date encoded in a P800 picture filename to the file
 
 =head1 USAGE
 
@@ -204,7 +204,8 @@ Commons Attribution-Noncommercial-Share Alike 3.0 Unported License.
 
 =item B<--artist>
 
-Store the artist who created the image in the EXIF data, defaults to $USER.
+Store the name of the artist who created the image in the EXIF data, defaults
+to $USER.
 
 =item B<--exif>
 
@@ -216,7 +217,8 @@ Change the timestamp of the file to the date and time encoded in the filename.
 
 =item B<--preserve>
 
-Change only the date in the modification date while preserving the time.
+Change only the date part in the modification date while preserving the time
+part. 
 
 =item B< -?, -h, --help>
 
@@ -288,8 +290,8 @@ C<p800exif 36LC0079.jpg>
 
 =head1 DEPENDENCIES
 
-Perl 5.14.0, Date::Extract:P800Picture,  Image::ExifTool, File::Basename,
-File::stat, File::Slurp ,Getopt::Long, Log::Log4perl, Pod::Usage::CommandLine
+Perl 5.14.0, Date::Extract:P800Picture, Image::ExifTool, File::Basename,
+File::stat, File::Slurp, Getopt::Long, Log::Log4perl, Pod::Usage::CommandLine
 
 =head1 EXIT STATUS
 
@@ -311,7 +313,7 @@ An error occurred.
 
 =head1 CONFIGURATION
 
-L<Log::Log4perl|Log::Log4perl> logging can be configured in p800date_log.conf.
+L<Log::Log4perl|Log::Log4perl> logging can be configured in p800exif_log.conf.
 
 =head1 INCOMPATIBILITIES
 
