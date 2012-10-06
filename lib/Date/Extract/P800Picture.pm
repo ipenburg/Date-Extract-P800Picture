@@ -156,7 +156,7 @@ __END__
 =head1 NAME
 
 Date::Extract::P800Picture - class for extracting the date and the hour from
-the filename of pictures taken with a Sony-Ericsson P800 camera phone.
+the filename of pictures taken with a Sony Ericsson P800 camera phone.
 
 =head1 VERSION
 
@@ -176,7 +176,7 @@ This document describes Date::Extract::P800Picture version 0.103.
 
 =head1 DESCRIPTION
 
-The Sony-Ericsson P800 camera phone stores pictures taken with the camera on
+The Sony Ericsson P800 camera phone stores pictures taken with the camera on
 the device with a filename consisting of the date and the hour the picture was
 taken, followed by a four digit number and the .JPG extension. The format of
 the date and the hour is YMDH, in which the single characters are base 36 to
@@ -235,7 +235,7 @@ No configuration and environment settings are used.
 =over 4
 
 =item * To avoid ambiguity between more common date notations and the
-Sony-Ericsson P800's date notation this is a separate module. It's highly
+Sony Ericsson P800's date notation this is a separate module. It's highly
 unlikely that in any other setting "2000" means the first of January 2002.
 
 =item * For perls earlier than 5.14 version 0.04 of this module provides the

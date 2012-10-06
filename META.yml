@@ -1,5 +1,5 @@
 ---
-abstract: 'Class for extracting the date and the hour from the filename of pictures taken with a Sony-Ericsson P800 camera phone'
+abstract: 'Class for extracting the date and the hour from the filename of pictures taken with a Sony Ericsson P800 camera phone'
 author:
   - 'Roland van Ipenburg <ipenburg@xs4all.nl>'
 build_requires:

@@ -176,7 +176,7 @@ I<filename>...
 =head1 DESCRIPTION
 
 B<p800exif> attaches the timestamp encoded in the filename of pictures created
-with a Sony-Ericsson P800 camera phone to the file as EXIF information in the
+with a Sony Ericsson P800 camera phone to the file as EXIF information in the
 image file or as the file's modification time.
 
 =head1 REQUIRED ARGUMENTS

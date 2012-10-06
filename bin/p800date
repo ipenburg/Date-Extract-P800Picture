@@ -86,7 +86,8 @@ B<p800date> [B<-v>] I<filename>...
 =head1 DESCRIPTION
 
 B<p800date> prints the timestamp encoded in the filenames of pictures created
-with a Sony-Ericsson P800 camera phone. The timestamp is in ISO8601 notation.
+with a Sony Ericsson P800 camera phone. The timestamp is printed in ISO8601
+notation.
 
 =head1 REQUIRED ARGUMENTS
 
