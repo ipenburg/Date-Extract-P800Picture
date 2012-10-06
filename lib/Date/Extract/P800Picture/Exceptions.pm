@@ -1,5 +1,5 @@
-package Date::Extract::P800Picture::Exceptions
-  ;    # -*- cperl; cperl-indent-level: 4 -*-
+# -*- cperl; cperl-indent-level: 4 -*-
+package Date::Extract::P800Picture::Exceptions;
 use strict;
 use warnings;
 
@@ -18,11 +18,9 @@ __END__
 
 =encoding utf8
 
-=for stopwords Roland van Ipenburg
-
 =head1 NAME
 
-Date::Extract::P800Picture::Exceptions - Handles exception information for the L<Date::Extract::P800Picture|Date::Extract::P800Picture> class.
+Date::Extract::P800Picture::Exceptions - exceptions.
 
 =head1 VERSION
 
@@ -35,8 +33,7 @@ This document describes Date::Extract::P800Picture::Exceptions version 0.103.
 
 =head1 DESCRIPTION
 
-Provides C<DateExtractP800PictureExceptionNOSOpenInternalServerErrorException>
-exception classes based on
+Provides C<DateExtractP800PictureException> exception classes based on
 L<Exception::Class::Base|Exception::Class::Base>.
 
 =head1 SUBROUTINES/METHODS
@@ -56,7 +53,8 @@ L<Exception::Class|Exception::Class>
 =head1 BUGS AND LIMITATIONS
 
 Please report any bugs or feature requests at
-L<RT for rt.cpan.org|https://rt.cpan.org/Dist/Display.html?Queue=Date-Extract-P800Picture>.
+L<RT for rt.cpan.org|
+https://rt.cpan.org/Dist/Display.html?Queue=Date-Extract-P800Picture>.
 
 =head1 AUTHOR
 
