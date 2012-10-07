@@ -153,8 +153,7 @@ __END__
 
 =head1 NAME
 
-Date::Extract::P800Picture - class for extracting the date and the hour from
-the filename of pictures taken with a Sony Ericsson P800 camera phone.
+Date::Extract::P800Picture - extract the date from Sony Ericsson P800 pictures.
 
 =head1 VERSION
 
