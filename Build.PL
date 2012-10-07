@@ -24,7 +24,10 @@ Module::Build->new(
         'Pod::Usage'              => 0,
         'Pod::Usage::CommandLine' => 0,
     },
-    sign => 1,
-    meta_merge =>
-      { repository => 'https://github.com/ipenburg/Date-Extract-P800Picture', },
+    sign       => 1,
+    meta_merge => {
+        resources => {
+            repository => 'https://github.com/ipenburg/Date-Extract-P800Picture'
+        }
+    },
 )->create_build_script;
