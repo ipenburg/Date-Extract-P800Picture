@@ -23,6 +23,7 @@ Module::Build->new(
         'Log::Log4perl'           => 0,
         'Pod::Usage'              => 0,
         'Pod::Usage::CommandLine' => 0,
+        'Module::Signature'       => 0,
     },
     script_files => [ qw(bin/p800date bin/p800exif), ],
     sign         => 1,
