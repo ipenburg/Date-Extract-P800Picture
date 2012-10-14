@@ -1,5 +1,5 @@
 # -*- cperl; cperl-indent-level: 4 -*-
-package Date::Extract::P800Picture::Exceptions 0.104;
+package Date::Extract::P800Picture::Exceptions 0.105;
 use strict;
 use warnings;
 
@@ -22,7 +22,7 @@ Date::Extract::P800Picture::Exceptions - exceptions.
 
 =head1 VERSION
 
-This document describes Date::Extract::P800Picture::Exceptions version 0.104.
+This document describes Date::Extract::P800Picture::Exceptions version 0.105.
 
 =head1 SYNOPSIS
 

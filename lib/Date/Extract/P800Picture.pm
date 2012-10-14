@@ -1,4 +1,4 @@
-package Date::Extract::P800Picture 0.104; # -*- cperl; cperl-indent-level: 4 -*-
+package Date::Extract::P800Picture 0.105; # -*- cperl; cperl-indent-level: 4 -*-
 
 use strict;
 use warnings;
@@ -151,13 +151,15 @@ sub _parse {
 
 __END__
 
+=encoding utf8
+
 =head1 NAME
 
 Date::Extract::P800Picture - extract the date from Sony Ericsson P800 pictures.
 
 =head1 VERSION
 
-This document describes Date::Extract::P800Picture version 0.104.
+This document describes Date::Extract::P800Picture version 0.105.
 
 =head1 SYNOPSIS
 

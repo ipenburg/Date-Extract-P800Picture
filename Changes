@@ -1,7 +1,10 @@
 Revision history for Perl extension Date::Extract::P800Picture.
 
-0.104 Sat Oct  6 20:52:13 2012
+0.105 Sun Oct 14 14:17:42 UTC 2012
     - TODO
+
+0.104 Sun Oct 14 13:38:02 UTC 2012
+    - improved META data
     - refactored to 5.12 package name version syntax
 
 0.103 Thu Sep  1 18:38:07 2012

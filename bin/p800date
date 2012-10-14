@@ -5,7 +5,7 @@ use warnings;
 use utf8;
 use 5.014000;
 
-BEGIN { our $VERSION = '0.104'; }
+BEGIN { our $VERSION = '0.105'; }
 
 use Date::Extract::P800Picture;
 
@@ -74,6 +74,8 @@ while ( my $filename = shift @ARGV ) {
 }
 
 __END__
+
+=encoding utf8
 
 =head1 NAME
 
