@@ -165,6 +165,8 @@ __END__
 
 =encoding utf8
 
+=for stopwords DPI Ericsson Filename MERCHANTABILITY filename timestamp exif EXIF Unported manpage JFIF Ipenburg
+
 =head1 NAME
 
 p800exif - add the date encoded in a P800 picture filename to the file
@@ -303,11 +305,11 @@ File::stat, File::Slurp, Getopt::Long, Log::Log4perl, Pod::Usage::CommandLine
 
 Success.
 
-=item 2
+=item 2Z<>
 
 Unknown option specified.
 
-=item 255
+=item 255Z<>
 
 An error occurred.
 
@@ -333,7 +335,7 @@ Roland van Ipenburg, E<lt>ipenburg@xs4all.nlE<gt>
 
 =head1 LICENSE AND COPYRIGHT
 
-Copyright 2012 by Roland van Ipenburg
+Copyright 2013 by Roland van Ipenburg
 
 This program is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself, either Perl version 5.14.0 or,
