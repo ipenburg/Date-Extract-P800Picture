@@ -4,6 +4,7 @@ Build.PL
 Changes
 lib/Date/Extract/P800Picture.pm
 lib/Date/Extract/P800Picture/Exceptions.pm
+LICENSE
 LICENSES/artistic.txt
 LICENSES/gpl-1.0.txt
 LICENSES/gpl-2.0.txt
