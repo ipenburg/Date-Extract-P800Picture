@@ -1,5 +1,6 @@
 # -*- cperl; cperl-indent-level: 4 -*-
-package Date::Extract::P800Picture::Exceptions 0.105;
+# Copyright (C) 2008-2013, Roland van Ipenburg
+package Date::Extract::P800Picture::Exceptions 0.106;
 use strict;
 use warnings;
 
@@ -16,7 +17,8 @@ __END__
 
 =encoding utf8
 
-=for stopwords Ericsson Filename MERCHANTABILITY POSIX filename timestamp Ipenburg
+=for stopwords Ericsson Filename MERCHANTABILITY POSIX filename timestamp
+Ipenburg
 
 =head1 NAME
 
@@ -24,7 +26,7 @@ Date::Extract::P800Picture::Exceptions - exceptions.
 
 =head1 VERSION
 
-This document describes Date::Extract::P800Picture::Exceptions version 0.105.
+This document describes Date::Extract::P800Picture::Exceptions version 0.106.
 
 =head1 SYNOPSIS
 
@@ -62,7 +64,7 @@ Roland van Ipenburg, E<lt>ipenburg@xs4all.nlE<gt>
 
 =head1 LICENSE AND COPYRIGHT
 
-Copyright 2013 by Roland van Ipenburg
+Copyright (C) 2008-2013, Roland van Ipenburg
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself, either Perl version 5.14.0 or,

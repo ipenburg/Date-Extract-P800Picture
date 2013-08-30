@@ -29,3 +29,7 @@ t/15_spell.t
 t/perlcriticrc
 META.yml
 META.json
+LICENSES/artistic.txt
+LICENSES/gpl-1.0.txt
+LICENSES/gpl-2.0.txt
+LICENSES/gpl-3.0.txt
