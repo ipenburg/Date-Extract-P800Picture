@@ -166,7 +166,8 @@ __END__
 
 =encoding utf8
 
-=for stopwords DPI Ericsson Filename MERCHANTABILITY filename timestamp exif EXIF Unported manpage JFIF Ipenburg
+=for stopwords p800exif exif EXIF DPI Ericsson Filename MERCHANTABILITY
+filename timestamp Unported manpage JFIF Ipenburg
 
 =head1 NAME
 

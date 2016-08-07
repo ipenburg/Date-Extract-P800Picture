@@ -154,7 +154,7 @@ __END__
 
 =encoding utf8
 
-=for stopwords Ericsson Filename MERCHANTABILITY POSIX filename timestamp JPG
+=for stopwords Ericsson Filename MERCHANTABILITY POSIX filename timestamp jpg JPG
 YMDH DateTime undef perl Readonly perls Ipenburg
 
 =head1 NAME
