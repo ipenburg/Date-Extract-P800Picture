@@ -1,6 +1,6 @@
-Date::Extract::P800Picture is Copyright (C) 2008-2013, Roland van Ipenburg
+Date::Extract::P800Picture is Copyright (C) 2008-2017, Roland van Ipenburg
 
-Date::Extract::P800Picture version 0.107
+Date::Extract::P800Picture version 0.108
 ========================================
 
 This module can be used to extract the date and hour found in the filenames
