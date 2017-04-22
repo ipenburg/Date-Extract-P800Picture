@@ -16,7 +16,6 @@ META.yml
 README
 sample/36LC0079.jpg
 sample/36LC0079_original.jpg
-SIGNATURE
 t/00_base.t
 t/00_signature.t
 t/01_boundaries.t
